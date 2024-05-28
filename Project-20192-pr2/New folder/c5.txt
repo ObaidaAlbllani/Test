@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PR2_PROJECT
+{
+    class Inmate_Patients : Patient
+    {
+        Department depp;
+        List<string> drugs = new List<string>();
+        List<string> tests = new List<string>();
+        List<Doctor> dc = new List<Doctor>();
+        DateTime doo;
+        int pos;
+        public DateTime Doo
+        {
+            get
+            {
+                return doo;
+            }
+
+        }
+        public int Pos
+        {
+            get
+            {
+                return pos;
+            }
+        }
+        public Inmate_Patients()
+        {
+
+        }
+        public Inmate_Patients(string diagno,Department dep,DateTime d,int p, int num, string name, int age, int ye, int mon, int day):base(num,name,age,ye,mon,day)
+        {
+            depp = dep;
+            Diagnosis = diagno;
+            doo = d;
+            pos = p;
+        }
+        public override void AddDoctor(Doctor d)
+        {
+            dc.Add(d);
+        }
+        public void AddTest(string t)
+        {
+            tests.Add(t);
+        }
+    }
+}

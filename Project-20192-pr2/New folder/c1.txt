@@ -1,0 +1,87 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PR2_PROJECT
+{
+    class Patient : Department
+    {
+        private int nationalnumber;
+        private string name;
+        private int age;
+        private DateTime doa;
+        Doctor dc;
+        string diagnosis;
+        public int NationalNumber
+        {
+            get
+            {
+                return nationalnumber;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+        }
+        public DateTime DOA
+        {
+            get
+            {
+                return doa;
+            }
+        }
+        public string Diagnosis
+        {
+            get
+            {
+                return diagnosis;
+            }
+            set
+            {
+                diagnosis = value;
+            }
+        }
+        public Doctor DC
+        {
+            get
+            {
+                return dc;
+            }
+        }
+       public Patient()
+        {
+            nationalnumber = 0;
+            name = "";
+            age = 0;
+            doa = new DateTime();
+            ID++;
+            
+        }
+        public Patient(int nn, string n, int a, int y, int m, int d)
+        {
+            nationalnumber = nn;
+            name = n;
+            age = a;
+            doa = new DateTime(y, m, d);
+            ID++;
+        }
+        public virtual void AddDiagnosis(string d)
+        {
+            diagnosis = d;
+        }
+        public virtual void AddDoctor(Doctor d)
+        {
+            dc = d;
+        }
+    }
+}

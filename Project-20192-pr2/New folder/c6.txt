@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PR2_PROJECT
+{
+    class InmatePatient_With_IC : Inmate_Patients
+    {
+        DateTime entry;
+        DateTime exit;
+        public DateTime Entry
+        {
+            get
+            {
+                return entry;
+            }
+        }
+        public DateTime Exit
+        {
+            get
+            {
+                return exit;
+            }
+        }
+        public InmatePatient_With_IC()
+        {
+        }
+        public InmatePatient_With_IC(DateTime et, DateTime ex,string diagno,Department dep, DateTime d, int p, int num, string name, int age, int ye, int mon, int day) : base(diagno,dep,d,p,num,name,age,ye,mon,day)
+        {
+            entry = et;
+            exit = ex;
+        }
+    }
+}

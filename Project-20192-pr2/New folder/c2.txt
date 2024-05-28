@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PR2_PROJECT
+{
+    class Doctor
+    {
+
+       private int nationalnum;
+       private string name;
+       private DateTime dateofwork;
+       private string specialty;
+        public int NationalNum
+        {
+            get
+            {
+                return nationalnum;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
+        public DateTime DateOfWork
+        {
+            get
+            {
+                return DateOfWork;
+            }
+        }
+        public string Specialty
+        {
+            get
+            {
+                return specialty;
+            }
+        }
+        public Doctor()
+        {
+            nationalnum = 0;
+            name = " ";
+            dateofwork = new DateTime();
+            specialty = " ";
+        }
+        public Doctor(int nn, string n, string s, int y, int m, int d)
+        {
+            nationalnum = nn;
+            name = n;
+            specialty = s;
+            dateofwork = new DateTime(y, m, d);
+        }
+    }
+}

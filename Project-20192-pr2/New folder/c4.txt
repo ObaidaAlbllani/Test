@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PR2_PROJECT
+{
+    class Sampling_Patients :Patient
+    {
+        Department dia;
+        Doctor doc;
+        string preexisting;
+        public Department Dia
+        {
+            get
+            {
+                return dia;
+            }
+        } 
+        public Doctor Doc
+        {
+            get
+            {
+                return doc;
+            }
+        }
+        List<string> drugs = new List<string>();
+        public Sampling_Patients(Department d,Doctor docc, string pd, int nnn, string nn, int aa, int yy, int mm, int dd) :base(nnn,nn,aa,yy,mm,dd)
+        {
+            doc = docc;
+            dia = d;
+            preexisting = pd;
+        }
+        public void AddDrugs(string d1)
+        {
+            drugs.Add(d1);
+        }
+    }
+}

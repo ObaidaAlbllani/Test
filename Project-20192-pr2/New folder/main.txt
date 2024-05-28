@@ -1,0 +1,359 @@
+using System;
+using System.Collections.Generic;
+
+namespace PR2_PROJECT
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int max_size = 100;
+            Department d1 = new Department("Level 1");
+            Department d2 = new Department("Level 2");
+            Doctor doc1 = new Doctor(1, "Doctor 1", "EMT", 2011, 5, 3);
+            Doctor doc2 = new Doctor(2, "Doctor 2", "Sociopath", 2017, 4, 3);
+            Doctor doc3 = new Doctor(3, "Doctor 3", "Someone else", 2013, 7, 8);
+            //DateTime
+            bool x = false;
+            char p;
+            string name, pre_exist,diagnosis;
+            int nationalnumber, age, year, month, day,stay,op_year, op_month, op_day,eop_year,eop_month,eop_day,exop_year,exop_month,exop_day;
+            int docswitch, depswitch;
+            List<Patient> patients = new List<Patient>();
+            
+            /*while (x == false)
+            {
+                Console.WriteLine("Enter the type of patient");
+                Console.WriteLine("'s' For Sampling patients, 'n' for Inmate patients, or 'c' for Inmate Patients with IC");
+                p = Convert.ToChar(Console.ReadLine());
+                for (int i = 0; i < max_size; i++)
+                {
+                    switch (p)
+                    {
+                        case 's':
+                            Console.WriteLine("Enter the name of the Patient= ");
+                            name = Console.ReadLine();
+                            Console.WriteLine("Enter the national Number of the Patient= ");
+                            nationalnumber = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Age of the Patient= ");
+                            age = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter any Pre-Existing Disease");
+                            pre_exist = Console.ReadLine();
+                            Console.WriteLine("Enter the birth year of the patient= ");
+                            year = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the birth month of the patient= ");
+                            month = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the birth day of the patient= ");
+                            day = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter which Doctor to be assigned to, 1 or 2 or 3= ");
+                            docswitch = Convert.ToInt32(Console.ReadLine());
+                            switch (docswitch)
+                            {
+                                case (1):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case(1):
+                                            patients[i] = new Sampling_Patients(d1, doc1, pre_exist, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDiagnosis(diagnosis);
+                                            break;
+                                        case (2):
+                                            patients[i] = new Sampling_Patients(d2, doc1, pre_exist, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDiagnosis(diagnosis);
+                                            break;
+                                    }
+                                    break;
+                                case (2):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new Sampling_Patients(d1, doc2, pre_exist, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDiagnosis(diagnosis);
+                                            break;
+                                        case (2):
+                                            patients[i] = new Sampling_Patients(d2, doc2, pre_exist, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDiagnosis(diagnosis);
+                                            break;
+                                    }
+                                    break;
+                                case (3):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new Sampling_Patients(d1, doc3, pre_exist, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDiagnosis(diagnosis);
+                                            break;
+                                        case (2):
+                                            patients[i] = new Sampling_Patients(d2, doc3, pre_exist, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDiagnosis(diagnosis);
+                                            break;
+                                    }
+                                    break;
+                            }
+
+                            break;
+                        case 'n':
+                            Console.WriteLine("Enter the name of the Patient= ");
+                            name = Console.ReadLine();
+                            Console.WriteLine("Enter the national Number of the Patient= ");
+                            nationalnumber = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Age of the Patient= ");
+                            age = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter any Pre-Existing Disease");
+                            pre_exist = Console.ReadLine();
+                            Console.WriteLine("Enter the birth year of the patient= ");
+                            year = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the birth month of the patient= ");
+                            month = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the birth day of the patient= ");
+                            day = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Date of the operation(Y//M//D)= ");
+                            op_year = Convert.ToInt32(Console.ReadLine());
+                            op_month = Convert.ToInt32(Console.ReadLine());
+                            op_day = Convert.ToInt32(Console.ReadLine());
+                            DateTime oo = new DateTime(op_year,op_month, op_day);
+                            Console.WriteLine("Enter the Number of days the patient will stay= ");
+                            stay = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter which Doctor to be assigned to, 1 or 2 or 3= ");
+                            docswitch = Convert.ToInt32(Console.ReadLine());
+                            switch (docswitch)
+                            {
+                                case (1):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new Inmate_Patients(diagnosis,d1,oo,stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc1);
+                                            break;
+                                        case (2):
+                                            patients[i] = new Inmate_Patients(diagnosis, d2, oo, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc1);
+                                            break;
+                                    }
+                                    break;
+                                case (2):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new Inmate_Patients(diagnosis, d1, oo, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc2);
+                                            break;
+                                        case (2):
+                                            patients[i] = new Inmate_Patients(diagnosis, d2, oo, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc2);
+                                            break;
+                                    }
+                                    break;
+                                case (3):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new Inmate_Patients(diagnosis, d1, oo, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc3);
+                                            break;
+                                        case (2):
+                                            patients[i] = new Inmate_Patients(diagnosis, d2, oo, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc3);
+                                            break;
+                                    }
+                                    break;
+                            }
+
+                            break;
+                        case 'c':
+                            Console.WriteLine("Enter the name of the Patient= ");
+                            name = Console.ReadLine();
+                            Console.WriteLine("Enter the national Number of the Patient= ");
+                            nationalnumber = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Age of the Patient= ");
+                            age = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter any Pre-Existing Disease");
+                            pre_exist = Console.ReadLine();
+                            Console.WriteLine("Enter the birth year of the patient= ");
+                            year = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the birth month of the patient= ");
+                            month = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the birth day of the patient= ");
+                            day = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Date of the operation(Y//M//D)= ");
+                            op_year = Convert.ToInt32(Console.ReadLine());
+                            op_month = Convert.ToInt32(Console.ReadLine());
+                            op_day = Convert.ToInt32(Console.ReadLine());
+                            DateTime o = new DateTime(op_year, op_month, op_day);
+                            Console.WriteLine("Enter the Number of days the patient will stay= ");
+                            stay = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Enty Date of the patient= Y//M//D");
+                            eop_year = Convert.ToInt32(Console.ReadLine());
+                            eop_month = Convert.ToInt32(Console.ReadLine());
+                            eop_day = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Exist date of the patient = Y//M//D");
+                            exop_year = Convert.ToInt32(Console.ReadLine());
+                            exop_month = Convert.ToInt32(Console.ReadLine());
+                            exop_day = Convert.ToInt32(Console.ReadLine());
+                            DateTime eto = new DateTime(eop_year, eop_month, eop_day);
+                            DateTime exo = new DateTime(exop_year, exop_month, exop_day);
+                            Console.WriteLine("Enter which Doctor to be assigned to, 1 or 2 or 3= ");
+                            docswitch = Convert.ToInt32(Console.ReadLine());
+                            switch (docswitch)
+                            {
+                                case (1):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new InmatePatient_With_IC(eto,exo,diagnosis, d1, o, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc1);
+                                            break;
+                                        case (2):
+                                            patients[i] = new InmatePatient_With_IC(eto,exo,diagnosis, d2, o, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc1);
+                                            break;
+                                    }
+                                    break;
+                                case (2):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new InmatePatient_With_IC(eto, exo, diagnosis, d1, o, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc2);
+                                            break;
+                                        case (2):
+                                            patients[i] = new InmatePatient_With_IC(eto, exo, diagnosis, d1, o, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc2);
+                                            break;
+                                    }
+                                    break;
+                                case (3):
+                                    Console.WriteLine("Enter the name of the Diagnosis");
+                                    diagnosis = Console.ReadLine();
+                                    Console.WriteLine("Enter which department 1 or 2= ");
+                                    depswitch = Convert.ToInt32(Console.ReadLine());
+                                    switch (depswitch)
+                                    {
+                                        case (1):
+                                            patients[i] = new InmatePatient_With_IC(eto, exo, diagnosis, d1, o, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc3);
+                                            break;
+                                        case (2):
+                                            patients[i] = new InmatePatient_With_IC(eto, exo, diagnosis, d1, o, stay, nationalnumber, name, age, year, month, day);
+                                            patients[i].AddDoctor(doc3);
+                                            break;
+                                    }
+                                    break;
+                            }
+
+                            break;
+
+                    }
+                    char check;
+                    Console.WriteLine("Would you like to Continue? Y/N");
+                    check = Convert.ToChar(Console.ReadLine());
+                    if(check == 'n')
+                    {
+                        x = true;
+                        break;
+                    }
+                }
+            } */
+            DateTime ddd = new DateTime(2040, 4, 2);
+            DateTime et1 = new DateTime(2020, 6, 12);
+            DateTime ex1 = new DateTime(2020, 6, 13);
+            patients[0] = new Sampling_Patients(d1, doc1, "Dead", 6, "Patient1", 15, 2017, 5, 4);
+            patients[1] = new Sampling_Patients(d2, doc2, "DeaD", 7, "Patient2", 17, 2012, 5, 4);
+            patients[2] = new Sampling_Patients(d1, doc1, "DeaD", 5, "Patient3", 18, 2014, 5, 4);
+            patients[3] = new Inmate_Patients("Actuall dead", d1, ddd, 6, 20, "Patient 4", 20, 2019, 5, 3);
+            patients[4] = new Inmate_Patients("Actually dead", d2, ddd, 3, 21, "Patient 5", 27, 2019, 3, 3);
+            patients[5] = new Inmate_Patients("Actually dead", d2, ddd, 4, 28, "Patient 6", 21, 2016, 5, 3);
+            patients[6] = new InmatePatient_With_IC(et1, ex1, "Cough", d1, ddd, 50, 42, "Patient 7", 30, 2018, 8, 4);
+            patients[7] = new InmatePatient_With_IC(et1, ex1, "something", d2, ddd, 51, 43, "Patient 8", 33, 2013, 5, 1);
+            patients.Add(patients[0]);
+            patients.Add(patients[1]);
+            patients.Add(patients[2]);
+            patients.Add(patients[3]);
+            patients.Add(patients[4]);
+            patients.Add(patients[5]);
+            patients.Add(patients[6]);
+            patients.Add(patients[7]);
+            List<int> test = new List<int>();
+            test.Add(1);
+            test.Add(1);
+            test.Add(1);
+            test.Add(1);
+            test.Add(1);
+            Console.WriteLine(test.Count);
+            //Finding the number of patients inmates
+            /*int numberofin=0;
+            for (int i = 0; i < (patients.Count); i++)
+            {
+                if(patients[i] is Inmate_Patients)
+                {
+                    numberofin++;
+                }
+            }
+            Console.WriteLine(numberofin);
+            //Finding the names of the patients with the same diagno
+            string SearchDiagno = "dead";
+            for (int i = 0;i < (patients.Count); i++){
+                if(patients[i].Diagnosis == SearchDiagno)
+                {
+                    Console.WriteLine("Found a patient and their index is {0}", i);
+                }
+            }
+            //Finding a specific Supervised doctor
+            Console.WriteLine("Enter a doctor's Name= ");
+            string SearchDoctor = Console.ReadLine();
+            for(int i = 0; i < (patients.Count); i++)
+            {
+                if(patients[i].DC.Name == SearchDoctor)
+                {
+                    Console.WriteLine("Found a patient supervised by Doctor {0} and their index is {1}", SearchDoctor, i);
+                }
+            }
+            //Finding patients who left after one day of intensive care
+            InmatePatient_With_IC pto = new InmatePatient_With_IC();
+            for (int i = 0; i < (patients.Count); i++)
+            {
+                if (patients[i] is InmatePatient_With_IC)
+                {
+                    pto = (InmatePatient_With_IC)patients[i];
+                    if((pto.Exit.Day)-(pto.Entry.Day) == 0)
+                    {
+                        Console.WriteLine("A patient left intensive care after one day, their index is = {0}", i);
+                    }
+                }
+            }
+            //End of Project*/
+        }
+    }
+}
+

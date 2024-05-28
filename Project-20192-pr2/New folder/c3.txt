@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PR2_PROJECT
+{
+    class Department
+    {
+        int id;
+        string departname;
+        List<Doctor> ds = new List<Doctor>();
+
+        public int ID
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
+        public Department()
+        {
+            departname = "";
+        }
+        public Department(string n)
+        {
+            departname = n;
+        }
+        public string DepartName
+        {
+            get
+            {
+                return departname;
+            }
+        }
+        public void AddDoctor(Doctor d)
+        {
+            ds.Add(d);
+        }
+        
+    }
+}
